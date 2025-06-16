@@ -1,0 +1,57 @@
+<div class="admin-container">
+  <aside class="sidebar">
+    <h1>DocIngestClassify</h1>
+    <nav>
+      <a routerLink="/admin" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/admin/users" routerLinkActive="active">Users</a>
+      <a routerLink="/admin/files" routerLinkActive="active">Files</a>
+      <a routerLink="/admin/profile" routerLinkActive="active">Profile</a>
+    </nav>
+  </aside>
+
+  <main class="main-panel">
+    <header class="admin-header">
+      <h2>Welcome, {{ admin.name }}</h2>
+    </header>
+
+    <section *ngIf="router.url === '/admin'" class="dashboard-section">
+      <div class="charts">
+  <div class="chart-card"><canvas #barCanvas></canvas></div>
+  <div class="chart-card"><canvas #pieCanvas></canvas></div>
+  <div class="chart-card"><canvas #lineCanvas></canvas></div>
+  <div class="chart-card"><canvas #doughnutCanvas></canvas></div>
+</div>
+ 
+    </section>
+
+    <section *ngIf="router.url === '/admin/users'">
+      <h3>User Details</h3>
+      <table>
+        <tr><th>Name</th><th>Email</th><th>Last Login</th></tr>
+        <tr *ngFor="let u of users"><td>{{ u.name }}</td><td>{{ u.email }}</td><td>{{ u.lastLogin }}</td></tr>
+      </table>
+    </section>
+
+    <section *ngIf="router.url === '/admin/files'">
+      <h3>File Stats</h3>
+      <table>
+        <tr><th>File Name</th><th>Last Updated</th><th>Status</th></tr>
+        <tr *ngFor="let f of files">
+          <td>{{ f.name }}</td>
+          <td>{{ f.lastUpdated }}</td>
+          <td [class.success]="f.status==='Success'" [class.failed]="f.status==='Failed'">{{ f.status }}</td>
+        </tr>
+      </table>
+    </section>
+
+    <section *ngIf="router.url === '/admin/profile'" class="profile-form">
+      <h3>Edit Admin Profile</h3>
+      <!-- <form (submit)="saveProfile(); $event.preventDefault()">
+        <label>Name: <input [(ngModel)]="editing.name" /></label>
+        <label>Email: <input [(ngModel)]="editing.email" /></label>
+        <label>Phone: <input [(ngModel)]="editing.phone" /></label>
+        <button type="submit">Save</button>
+      </form> -->
+    </section>
+  </main>
+</div>

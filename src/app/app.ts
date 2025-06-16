@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { LandingPage } from "./landing-page/landing-page";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LandingPage],
+  imports: [RouterOutlet,RouterModule],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  template : `<router-outlet />`
+
 })
 export class App {
   protected title = 'DocumentIngestion';

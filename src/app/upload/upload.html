@@ -1,0 +1,59 @@
+<div class="upload-wrapper">
+  <!-- Header -->
+  <nav class="upload-navbar">
+    <div class="upload-logo" (click)="navigateToLanding()">DocIngestClassify</div>
+    <button class="upload-nav-btn" (click)="navigateToLanding()" routerLink="/">← Home</button>
+  </nav>
+
+  <!-- Main Split Layout -->
+  <main class="upload-split">
+    <!-- Left: Flowchart Panel -->
+    <section class="flowchart-panel">
+      <h2>Document Workflow</h2>
+      <div class="flowchart-container">
+        <ng-container *ngFor="let step of flowSteps; let i = index">
+          <div class="flow-step">
+            <span class="material-icons icon">{{ step.icon }}</span>
+            <div class="step-text">{{ step.label }}</div>
+          </div>
+          <div *ngIf="i !== flowSteps.length - 1" class="flow-line"></div>
+        </ng-container>
+      </div>
+    </section>
+
+    <!-- Right: Upload Panel -->
+    <section class="upload-panel">
+      <h2>Upload Documents </h2>
+
+      <div
+        class="upload-box"
+        (dragover)="onDragOver($event)"
+        (drop)="onDrop($event)"
+        (click)="fileInput.click()"
+      >
+        <span class="material-icons upload-icon">cloud_upload</span>
+        <p>Drag & Drop here or click to upload</p>
+        <input type="file" #fileInput hidden (change)="onFileChange($event)" multiple />
+      </div>
+
+      <div *ngIf="uploadedFiles.length > 0" class="file-preview">
+        <h4>Uploaded Files:</h4>
+        <ul>
+          <li *ngFor="let file of uploadedFiles">{{ file.name }}</li>
+        </ul>
+
+        <div class="progress-bar-container">
+          <div class="progress-bar" [style.width.%]="uploadProgress"></div>
+        </div>
+
+        <button class="submit-btn" (click)="submitFiles()">Submit</button>
+      </div>
+
+      <button class="connect-btn" (click)="connectToMailbox()">
+        <span class="material-icons">mail</span>
+        Connect to Mailbox
+      </button>
+    </section>
+  </main>
+</div>
+ 

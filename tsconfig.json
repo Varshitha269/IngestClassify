@@ -13,7 +13,12 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+  //   "moduleResolution": "node",
+  // "baseUrl": "./",
+  // "paths": {
+  //   "@angular/*": ["node_modules/@angular/*"]
+  
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -22,6 +27,7 @@
     "typeCheckHostBindings": true,
     "strictTemplates": true
   },
+
   "files": [],
   "references": [
     {
