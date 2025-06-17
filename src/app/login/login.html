@@ -1,0 +1,66 @@
+<div class="auth-container">
+  <div class="auth-box">
+    <div class="auth-header">
+      <img src="https://flowbite.com/docs/images/logo.svg" alt="Logo">
+      <h2>{{ isLogin ? 'Sign in to your account' : 'Create a new account' }}</h2>
+      <p>Welcome to our platform</p>
+    </div>
+
+    <div class="toggle-buttons">
+      <button class="tab-btn" [class.active]="isLogin" (click)="setMode(true)">Sign In</button>
+      <button class="tab-btn" [class.active]="!isLogin" (click)="setMode(false)">Register</button>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div *ngIf="!isLogin" class="row">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName">
+          <mat-error *ngIf="isInvalid('firstName')">First name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName">
+          <mat-error *ngIf="isInvalid('lastName')">Last name is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width" [ngClass]="{ 'invalid': isInvalid('email') }">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email">
+        <mat-icon matSuffix>mail</mat-icon>
+        <mat-error *ngIf="isInvalid('email')">Valid email is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" [ngClass]="{ 'invalid': isInvalid('password') }">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix type="button" (click)="togglePassword()">
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <mat-error *ngIf="isInvalid('password')">Password is required (min 6 characters)</mat-error>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="!isLogin" appearance="outline" class="full-width" [ngClass]="{ 'invalid': isInvalid('confirmPassword') }">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="confirmPassword">
+        <mat-error *ngIf="isInvalid('confirmPassword')">Passwords must match</mat-error>
+      </mat-form-field>
+
+      <mat-checkbox *ngIf="!isLogin" formControlName="terms">
+        I accept the <a href="#" class="terms">Terms and Conditions</a>
+      </mat-checkbox>
+
+      <button mat-raised-button color="primary" class="submit-btn" [disabled]="form.invalid">
+        {{ isLogin ? 'Sign in' : 'Register' }}
+      </button>
+
+      <!-- <p class="switch-msg">
+        {{ isLogin ? 'Don\'t have an account?' : 'Already have an account?' }}
+        <a href="#" (click)="toggleForm($event)">{{ isLogin ? 'Register here' : 'Login here' }}</a>
+      </p> -->
+    </form>
+  </div>
+</div>
+ 

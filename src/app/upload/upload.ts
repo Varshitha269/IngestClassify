@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Uploaddataflow } from "../uploaddataflow/uploaddataflow";
 
 @Component({
   selector: 'app-upload',
-  imports:[CommonModule],
+  imports: [CommonModule, Uploaddataflow],
   templateUrl: './upload.html',
   styleUrls: ['./upload.css']
 })

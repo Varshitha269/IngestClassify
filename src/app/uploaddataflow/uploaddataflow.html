@@ -1,0 +1,46 @@
+<section class="flowchart-panel">
+  <h2>Document Workflow</h2>
+
+  <button class="btn-start" (click)="startWorkflow()">Start Workflow</button>
+
+  <div class="flowchart-container">
+    <ng-container *ngFor="let step of flowSteps; let i = index">
+      <div class="step-wrapper">
+        <div
+          class="flow-step"
+          [class.done]="step.status === 'done'"
+          [class.inprogress]="step.status === 'in-progress'"
+          (click)="selectStep(i)"
+        >
+          <span class="material-icons icon">{{ step.icon }}</span>
+          <div class="step-text">{{ step.label }}</div>
+
+          <!-- Tooltip on hover -->
+          <div class="hover-tooltip">
+            <strong>Step:</strong> {{ step.label }}
+
+            <strong>Time:</strong> {{ step.details.time }}
+
+            <strong>File:</strong> {{ step.details.fileName || step.details.outputName || '—' }}
+          </div>
+        </div>
+
+        <!-- Step detail card shown next to the clicked step -->
+        <div
+          *ngIf="selectedStepIndex === i"
+          class="step-details"
+        >
+          <h4>{{ step.label }} Details</h4>
+          <ng-container *ngFor="let d of step.details | keyvalue">
+            <p><strong>{{ d.key }}:</strong> {{ d.value }}</p>
+          </ng-container>
+          <button (click)="closeDetails()">Close</button>
+        </div>
+      </div>
+
+      <!-- Line between steps -->
+      <div *ngIf="i !== flowSteps.length - 1" class="flow-line"></div>
+    </ng-container>
+  </div>
+</section>
+ 
