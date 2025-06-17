@@ -1,0 +1,271 @@
+:host {
+  display: block;
+  font-family: 'Segoe UI', sans-serif;
+  background: white;
+  color: #111827;
+}
+
+.about-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+.logo span {
+  color: #3b82f6;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-primary:hover {
+  background: #1e40af;
+  transform: scale(1.05);
+}
+
+.hero {
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 20px;
+  margin-bottom: 50px;
+}
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.btn-cta {
+  background: white;
+  color: #3b82f6;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-cta:hover {
+  background: #e0e7ff;
+  transform: scale(1.05);
+}
+
+.section {
+  margin-bottom: 60px;
+}
+.section h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+.section p {
+  font-size: 16px;
+  color: #4b5563;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card {
+  flex: 1 1 calc(50% - 30px); /* Two per row */
+  min-width: 280px;
+  max-width: 480px;
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+  border-top: 6px solid #2563eb; /* Default blue */
+}
+
+.card:nth-child(2) {
+  border-top-color: #10b981; /* Green */
+}
+.card:nth-child(3) {
+  border-top-color: #f59e0b; /* Amber */
+}
+.card:nth-child(4) {
+  border-top-color: #ef4444; /* Red */
+}
+
+.card:hover {
+    background: #dbeafe;
+  transform: scale(1.02);
+  transform: translateY(-6px);
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.card h4 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 15px;
+  color: #4b5563;
+}
+ 
+/* Highlights */
+.highlights .highlight-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.highlight {
+  flex: 1 1 300px;
+  background: #e0f2fe;
+  padding: 20px;
+  border-left: 6px solid #3b82f6;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+.highlight:hover {
+  background: #dbeafe;
+  transform: scale(1.02);
+}
+.highlight h4 {
+  margin-bottom: 6px;
+}
+
+/* Stack */
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.stack-item {
+  background: #f3f4f6;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-weight: 600;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  transition: 0.3s;
+}
+.stack-item:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* Team */
+.team-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.member {
+  text-align: center;
+}
+.member img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 8px;
+}
+.member p {
+  font-weight: 500;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding-top: 60px;
+}
+.footer p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Fade on scroll */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 0; 
+  border-left: none;
+}
+
+.timeline-item {
+  flex: 1 1 calc(50% - 24px);
+  background: #ffffff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 20px;
+  transition: transform 0.3s ease;
+  border-top: 6px solid #2563eb;
+}
+
+.timeline-item:nth-child(2) {
+  border-top-color: #10b981; /* Green */
+}
+.timeline-item:nth-child(3) {
+  border-top-color: #f59e0b; /* Amber */
+}
+.timeline-item:nth-child(4) {
+  border-top-color: #ef4444; /* Red */
+}
+
+.timeline-item:hover {
+  transform: translateY(-6px);
+}
+
+.timeline-item h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.timeline-item p {
+  font-size: 15px;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* Hide original dot + bubble since it's now styled as a card */
+.dot, .bubble {
+  display: none;
+}
+ 
+ 

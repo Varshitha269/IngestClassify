@@ -1,1 +1,70 @@
-<p>about works!</p>
+<div class="about-wrapper">
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <h1 class="logo">Doc<span>IngestClassify</span></h1>
+    <button routerLink="/" class="btn-primary">← Home</button>
+  </header>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero">
+    <h2>Intelligent Document Ingestion & Classification</h2>
+    <p>Your documents. Automated. Structured. Routed — in seconds.</p>
+    <button routerLink="/upload" class="btn-cta">Start Uploading →</button>
+  </section>
+
+  <!-- ========== OVERVIEW ========== -->
+  <section class="section fade">
+    <h3>📄 What We Solve</h3>
+    <p>
+      Businesses receive tons of PDFs, scanned docs, and emails every day.
+      Our system automates the document lifecycle — freeing your team to make smarter decisions.
+    </p>
+  </section>
+
+  <!-- ========== FLOW CARDS ========== -->
+  <section class="section cards fade">
+    
+    <div class="card" *ngFor="let f of flow">
+      <div class="card-icon">{{ f.icon }}</div>
+      <h4>{{ f.title }}</h4>
+      <p>{{ f.desc }}</p>
+    </div>
+  </section>
+
+  <!-- ========== HIGHLIGHTS (ERROR HANDLING) ========== -->
+  <section class="section highlights fade">
+    <h3>🛡️ Intelligent Handling</h3>
+    <div class="highlight-grid">
+      <div class="highlight" *ngFor="let h of highlights">
+        <h4>{{ h.title }}</h4>
+        <p>{{ h.desc }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TECH STACK ========== -->
+  <section class="section fade">
+    <h3>🛠️ Tech Stack</h3>
+    <div class="stack">
+      <span *ngFor="let t of techs" class="stack-item">{{ t }}</span>
+    </div>
+  </section>
+
+  <!-- ========== TEAM ========== -->
+   <section class="section fade">
+    <h3>👨‍💻 Our Team</h3>
+    <div class="team-grid">
+      <div class="member" *ngFor="let m of team">
+        <img [src]="'https://ui-avatars.com/api/?name=' + m + '&background=0f172a&color=fff'" />
+        <p>{{ m }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER CTA ========== -->
+  <footer class="footer fade">
+    <p>Ready to transform how you handle documents?</p>
+    <button routerLink="/upload" class="btn-cta">Get Started →</button>
+  </footer>
+</div>
+ 
